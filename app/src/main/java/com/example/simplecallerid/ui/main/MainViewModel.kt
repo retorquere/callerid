@@ -30,4 +30,9 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
     fun delete(user: User) = viewModelScope.launch(Dispatchers.IO) {
         repository.delete(user)
     }
+
+    fun deleteAll() = viewModelScope.launch(Dispatchers.IO) {
+        repository.deleteAll()
+    }
+
 }

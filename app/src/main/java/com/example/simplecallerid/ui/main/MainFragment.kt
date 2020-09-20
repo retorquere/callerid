@@ -51,12 +51,13 @@ class MainFragment : Fragment() {
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(p0: DataSnapshot) {
                     users.clear()
+                    viewModel.deleteAll()
                     p0.children.forEach {
-                        val u = it.getValue(User::class.java)
-                        u?.phoneNumber = it.key.toString()
-                        users.add(u)
-                        if (u != null)
-                            viewModel.insert(u)
+                        val tempUser = it.getValue(User::class.java)
+                        tempUser?.phoneNumber = it.key.toString()
+                        users.add(tempUser)
+                        if (tempUser != null)
+                            viewModel.insert(tempUser)
                     }
                     users.isEmpty().let {
                         recycler_view.isVisible = !it
