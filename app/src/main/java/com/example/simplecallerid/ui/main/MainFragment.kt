@@ -48,7 +48,6 @@ class MainFragment : Fragment() {
         initRecyclerView()
         fetchUser()
 
-
 }
 
     private fun fetchUser() {

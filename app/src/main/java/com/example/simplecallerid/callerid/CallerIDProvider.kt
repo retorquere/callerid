@@ -25,7 +25,6 @@ class CallerIDProvider : ContentProvider() {
     private lateinit var authorityUri: Uri
 
 
-
     override fun onCreate(): Boolean {
         context?.let {
             val userDao = UserDatabase.getDatabase(it).userDao()
