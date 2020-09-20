@@ -12,6 +12,7 @@ import android.provider.ContactsContract.PhoneLookup
 import com.example.simplecallerid.R
 import com.example.simplecallerid.db.UserDatabase
 import com.example.simplecallerid.db.UserRepository
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 
@@ -22,6 +23,7 @@ class CallerIDProvider : ContentProvider() {
     private val uriMatcher = UriMatcher(UriMatcher.NO_MATCH)
 
     private lateinit var authorityUri: Uri
+
 
     override fun onCreate(): Boolean {
         context?.let {

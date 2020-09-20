@@ -8,7 +8,6 @@ import androidx.room.TypeConverters
 import com.example.simplecallerid.models.User
 
 @Database(entities = [User::class], version = 1)
-@TypeConverters(User.PhoneTypeConverter::class)
 abstract class UserDatabase: RoomDatabase() {
     abstract fun userDao(): UserDao
 

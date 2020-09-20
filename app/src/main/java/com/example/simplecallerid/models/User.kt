@@ -1,7 +1,7 @@
 package com.example.simplecallerid.models
 
-import androidx.room.*
 import android.telephony.PhoneNumberUtils
+import androidx.room.*
 import java.util.*
 
 @Entity(tableName = "user_table")
@@ -9,12 +9,16 @@ data class User(
     @ColumnInfo(name = "first_name") var firstName: String,
     @ColumnInfo(name = "last_name") var lastName: String,
     @ColumnInfo(name = "phone_number") var phoneNumber: String,
-    @ColumnInfo(name = "phone_type") var phoneType: PhoneType
+    @ColumnInfo(name = "phone_type") var phoneType: String
 ) {
+    constructor() : this(
+        "",
+        "","",""
+    )
     @PrimaryKey var id: String = UUID.randomUUID().toString()
     @Ignore var fullName: String = "$firstName $lastName"
-    @Ignore var prettyPrint: String = "${phoneType.label}: $phoneNumber"
-    @Ignore var phoneLabel: String = "Simple Caller ID App | ${phoneType.label}"
+    @Ignore var prettyPrint: String = "${phoneType}: $phoneNumber"
+    @Ignore var phoneLabel: String = "Simple Caller ID App | ${phoneType}"
 
     fun hasPhone(phoneNumber: String): Boolean = PhoneNumberUtils.compare(this.phoneNumber, phoneNumber)
 
@@ -28,22 +32,9 @@ data class User(
 
     override fun hashCode(): Int = super.hashCode()
 
-    class PhoneTypeConverter {
-        @TypeConverter
-        fun toString(type: PhoneType) = type.label
 
-        @TypeConverter
-        fun toType(type: String) = PhoneType.parse(type)
-    }
 }
 
-enum class PhoneType(var label: String) {
-    HOME_PHONE("Home"),
-    CELL_PHONE("Cell"),
-    WORK_PHONE("Work");
 
-    companion object {
-        fun parse(type: String) = values().firstOrNull { it.label == type }
-            ?: HOME_PHONE
-    }
-}
+
+
