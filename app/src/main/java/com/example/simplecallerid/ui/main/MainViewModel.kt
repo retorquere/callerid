@@ -11,6 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class MainViewModel(app: Application) : AndroidViewModel(app) {
+
     private val repository: UserRepository
 
     init {
@@ -29,5 +30,4 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
     fun delete(user: User) = viewModelScope.launch(Dispatchers.IO) {
         repository.delete(user)
     }
-
 }
