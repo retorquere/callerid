@@ -2,6 +2,7 @@ package com.example.simplecallerid.db
 
 import androidx.lifecycle.LiveData
 import com.example.simplecallerid.models.User
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
