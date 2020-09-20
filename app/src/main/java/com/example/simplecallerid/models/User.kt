@@ -1,7 +1,7 @@
 package com.example.simplecallerid.models
 
-import android.telephony.PhoneNumberUtils
 import androidx.room.*
+import android.telephony.PhoneNumberUtils
 import java.util.*
 
 @Entity(tableName = "user_table")
@@ -11,10 +11,7 @@ data class User(
     @ColumnInfo(name = "phone_number") var phoneNumber: String,
     @ColumnInfo(name = "phone_type") var phoneType: String
 ) {
-    constructor() : this(
-        "",
-        "","",""
-    )
+    constructor(): this("", "","","")
     @PrimaryKey var id: String = UUID.randomUUID().toString()
     @Ignore var fullName: String = "$firstName $lastName"
     @Ignore var prettyPrint: String = "${phoneType}: $phoneNumber"

@@ -33,11 +33,7 @@ class MainFragment : Fragment() {
     private lateinit var adapter: UserAdapter
     private val dataBaseRef = FirebaseDatabase.getInstance().reference
     val users = ArrayList<User?>()
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         return inflater.inflate(R.layout.main_fragment, container, false)
     }
 
@@ -96,18 +92,15 @@ class MainFragment : Fragment() {
                 if (dialog.first_name_input.text.isNullOrEmpty()
                     || dialog.last_name_input.text.isNullOrEmpty()
                     || dialog.phone_input.text.isNullOrEmpty()
-                    || dialog.phone_type_spinner.selectedItem == null
-                ) return@setPositiveButton
+                    || dialog.phone_type_spinner.selectedItem == null) return@setPositiveButton
 
                 val tempUser = User(
-                    dialog.first_name_input.text.toString(),
-                    dialog.last_name_input.text.toString(),
-                    dialog.phone_input.text.toString(),
-                    dialog.phone_type_spinner.selectedItem.toString()
-                )
-                if (user == null) viewModel.insert(tempUser) else viewModel.update(tempUser.apply {
-                    id = user.id
-                })
+                        dialog.first_name_input.text.toString(),
+                        dialog.last_name_input.text.toString(),
+                        dialog.phone_input.text.toString(),
+                        dialog.phone_type_spinner.selectedItem.toString()
+                    )
+                if (user == null) viewModel.insert(tempUser) else viewModel.update(tempUser.apply { id = user.id })
             }
             .setNegativeButton(getString(R.string.cancel), null)
             .show()
@@ -117,16 +110,11 @@ class MainFragment : Fragment() {
         adapter = UserAdapter()
         recycler_view.layoutManager = LinearLayoutManager(this.requireContext())
         recycler_view.addItemDecoration(object : RecyclerView.ItemDecoration() {
-            override fun getItemOffsets(
-                outRect: Rect,
-                view: View,
-                parent: RecyclerView,
-                state: RecyclerView.State
-            ) {
+            override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
                 val dimen = resources.getDimensionPixelSize(R.dimen.card_margin)
                 with(outRect) {
                     if (parent.getChildAdapterPosition(view) == 0) top = dimen
-                    left = dimen
+                    left =  dimen
                     right = dimen
                     bottom = dimen
                 }
@@ -159,7 +147,7 @@ class MainFragment : Fragment() {
         dialog.phone_type_spinner.setSelection(index)
     }
 
-    inner class UserAdapter : ListAdapter<User, UserAdapter.UserViewHolder>(USER_DIFF) {
+    inner class UserAdapter: ListAdapter<User, UserAdapter.UserViewHolder>(USER_DIFF) {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
             val layoutInflater = LayoutInflater.from(context)
@@ -171,7 +159,7 @@ class MainFragment : Fragment() {
             holder.bind(user)
         }
 
-        inner class UserViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        inner class UserViewHolder(view: View): RecyclerView.ViewHolder(view) {
             fun bind(user: User) {
                 itemView.user_full_name.text = user.fullName
                 itemView.user_data.text = user.phoneType
