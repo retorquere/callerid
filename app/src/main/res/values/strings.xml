@@ -4,8 +4,7 @@
     <string name="your_users">Your Users</string>
     <string name="loading">Loading…</string>
     <string name="no_users">You don\'t have any users</string>
-    <string name="first_name">First name</string>
-    <string name="last_name">Last name</string>
+    <string name="display_name">Name</string>
     <string name="phone_number">Phone number</string>
     <string name="update_user">Update User</string>
     <string name="save">Save</string>

@@ -68,14 +68,12 @@ class MainFragment : Fragment() {
             .setTitle(getString(R.string.add_user))
             .setView(dialog)
             .setPositiveButton(getString(R.string.save)) { _, _ ->
-                if (dialog.first_name_input.text.isNullOrEmpty()
-                    || dialog.last_name_input.text.isNullOrEmpty()
+                if (dialog.display_name_input.text.isNullOrEmpty()
                     || dialog.phone_input.text.isNullOrEmpty()
                     || dialog.phone_type_spinner.selectedItem == null) return@setPositiveButton
 
                 val tempUser = User(
-                        dialog.first_name_input.text.toString(),
-                        dialog.last_name_input.text.toString(),
+                        dialog.display_name_input.text.toString(),
                         dialog.phone_input.text.toString(),
                         dialog.phone_type_spinner.selectedItem.toString()
                     )
@@ -117,8 +115,7 @@ class MainFragment : Fragment() {
     }
 
     private fun initEditUserDialog(dialog: View, user: User) {
-        dialog.first_name_input.setText(user.firstName)
-        dialog.last_name_input.setText(user.lastName)
+        dialog.display_name_input.setText(user.displayName)
         initDialogPhoneFields(dialog)
         dialog.phone_input.setText(user.phoneNumber)
         val phoneTypeArray = resources.getStringArray(R.array.phone_types)
@@ -140,7 +137,7 @@ class MainFragment : Fragment() {
 
         inner class UserViewHolder(view: View): RecyclerView.ViewHolder(view) {
             fun bind(user: User) {
-                itemView.user_full_name.text = user.fullName
+                itemView.user_full_name.text = user.displayName
                 itemView.user_data.text = user.prettyPrint
                 itemView.delete_user_button.setOnClickListener { viewModel.delete(user) }
                 itemView.layout.setOnClickListener { openUserDialog(user) }
@@ -153,7 +150,7 @@ class MainFragment : Fragment() {
 
         private val USER_DIFF = object : DiffUtil.ItemCallback<User>() {
             override fun areContentsTheSame(oldItem: User, newItem: User): Boolean {
-                return oldItem.fullName == newItem.fullName
+                return oldItem.displayName == newItem.displayName
             }
 
             override fun areItemsTheSame(oldItem: User, newItem: User): Boolean {

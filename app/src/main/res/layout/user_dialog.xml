@@ -6,22 +6,13 @@
     android:orientation="vertical">
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/first_name_input"
+        android:id="@+id/display_name_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:hint="@string/first_name"
-        android:inputType="textCapWords"/>
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/last_name_input"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:hint="@string/last_name"
-        android:inputType="textCapWords"/>
+        android:hint="@string/display_name"
+        android:inputType="textCapWords" />
 
     <LinearLayout
         android:layout_width="match_parent"

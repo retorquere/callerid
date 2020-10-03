@@ -66,7 +66,7 @@ class CallerIDProvider : ContentProvider() {
                         projection?.map { column ->
                             when (column) {
                                 PhoneLookup._ID -> -1
-                                PhoneLookup.DISPLAY_NAME -> u.fullName
+                                PhoneLookup.DISPLAY_NAME -> u.displayName
                                 PhoneLookup.LABEL -> u.phoneLabel
                                 PhoneLookup.PHOTO_THUMBNAIL_URI,
                                 PhoneLookup.PHOTO_URI -> Uri.withAppendedPath(authorityUri, PRIMARY_PHOTO_URI)
