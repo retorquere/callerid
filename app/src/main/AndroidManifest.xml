@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.simplecallerid">
+    package="re.retorque.corpcallerid">
 
     <application
         android:allowBackup="false"
@@ -13,7 +13,7 @@
         tools:ignore="GoogleAppIndexingWarning">
 
         <provider
-            android:name=".callerid.CallerIDProvider"
+            android:name="re.retorque.corpcallerid.callerid.CallerIDProvider"
             android:authorities="@string/callerid_authority"
             android:readPermission="android.permission.READ_CONTACTS"
             android:enabled="true"
@@ -23,7 +23,7 @@
                 android:value="true"/>
         </provider>
 
-        <activity android:name=".MainActivity">
+        <activity android:name="re.retorque.corpcallerid.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

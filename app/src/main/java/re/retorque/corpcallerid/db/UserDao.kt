@@ -1,8 +1,8 @@
-package com.example.simplecallerid.db
+package re.retorque.corpcallerid.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.simplecallerid.models.User
+import re.retorque.corpcallerid.models.User
 
 @Dao
 interface UserDao {
@@ -22,5 +22,5 @@ interface UserDao {
     suspend fun delete(user: User)
 
     @Query("DELETE FROM user_table")
-    fun deleteAll()
+    suspend fun deleteAll()
 }

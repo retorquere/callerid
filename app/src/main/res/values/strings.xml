@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Simple Caller ID</string>
+    <string name="app_name">Corporate Caller ID</string>
     <string name="add">Add</string>
     <string name="your_users">Your Users</string>
     <string name="loading">Loading…</string>
@@ -12,7 +12,7 @@
     <string name="cancel">Cancel</string>
     <string name="add_user">Add User</string>
     <string name="add_phone_number">Add Phone Number</string>
-    <string name="callerid_authority">com.example.simplecallerid.callerid</string>
+    <string name="callerid_authority">re.retorque.corpcallerid.callerid</string>
     <string-array name="phone_types">
         <item>Home</item>
         <item>Cell</item>

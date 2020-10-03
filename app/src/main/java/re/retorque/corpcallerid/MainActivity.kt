@@ -1,9 +1,9 @@
-package com.example.simplecallerid
+package re.retorque.corpcallerid
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
-import com.example.simplecallerid.ui.main.MainFragment
+import re.retorque.corpcallerid.ui.main.MainFragment
 
 class MainActivity : AppCompatActivity() {
 

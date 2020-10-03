@@ -1,4 +1,4 @@
-# Simple Caller ID App
+# Corporate Caller ID App
 Here at SimpleNexus, we sell software to mortgage companies.
 These companies can have hundreds of loan officers, and thousands of users.
 Company admins and especially loan officers wanted a way to differentiate between their app users and spam calls.
@@ -84,7 +84,7 @@ The key elements to this content provider are:
 
 - The `query` method: All ContentProviders need a query method. Any service asking for information from an app will send a URI matching what kind of data they want, and a projection reference of which columns it wants. The result is a cursor with the data requested.
 - The `uriMatcher`: As mentioned in the documentation linked above regarding ContactContract.Directory, to display "directory" information (such as phone numbers and email addresses), the app must first display directory account information. This has to be unique from all other apps on the device. More will be explained later on what to return in response to the "directories" uri.
-- The `<meta-data>`: This is how the system know that your app can provide directory information. Much like an intent. Important also to notice, the provider has "authorities". It is important to use the same authority throughout your content provider, but the value is not as important. For this app my authority was `com.example.simplecallerid.callerid`.
+- The `<meta-data>`: This is how the system know that your app can provide directory information. Much like an intent. Important also to notice, the provider has "authorities". It is important to use the same authority throughout your content provider, but the value is not as important. For this app my authority was `re.retorque.corpcallerid.callerid`.
 
 # Directories
 

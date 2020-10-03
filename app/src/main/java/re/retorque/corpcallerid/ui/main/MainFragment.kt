@@ -1,4 +1,4 @@
-package com.example.simplecallerid.ui.main
+package re.retorque.corpcallerid.ui.main
 
 import android.graphics.Rect
 import android.os.Bundle
@@ -17,9 +17,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.simplecallerid.R
-import com.example.simplecallerid.models.PhoneType
-import com.example.simplecallerid.models.User
+import re.retorque.corpcallerid.R
+import re.retorque.corpcallerid.models.User
 import kotlinx.android.synthetic.main.main_fragment.*
 import kotlinx.android.synthetic.main.user_dialog.view.*
 import kotlinx.android.synthetic.main.user_dialog.view.phone_input
@@ -78,7 +77,7 @@ class MainFragment : Fragment() {
                         dialog.first_name_input.text.toString(),
                         dialog.last_name_input.text.toString(),
                         dialog.phone_input.text.toString(),
-                        PhoneType.parse(dialog.phone_type_spinner.selectedItem.toString())
+                        dialog.phone_type_spinner.selectedItem.toString()
                     )
                 if (user == null) viewModel.insert(tempUser) else viewModel.update(tempUser.apply { id = user.id })
             }
@@ -123,7 +122,7 @@ class MainFragment : Fragment() {
         initDialogPhoneFields(dialog)
         dialog.phone_input.setText(user.phoneNumber)
         val phoneTypeArray = resources.getStringArray(R.array.phone_types)
-        val index = phoneTypeArray.indexOfFirst { it == user.phoneType.label }
+        val index = phoneTypeArray.indexOfFirst { it == user.phoneType }
         dialog.phone_type_spinner.setSelection(index)
     }
 

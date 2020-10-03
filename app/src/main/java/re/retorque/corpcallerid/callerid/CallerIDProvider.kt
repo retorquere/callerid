@@ -1,4 +1,4 @@
-package com.example.simplecallerid.callerid
+package re.retorque.corpcallerid.callerid
 
 import  android.content.ContentProvider
 import android.content.ContentValues
@@ -9,9 +9,9 @@ import android.database.MatrixCursor
 import android.net.Uri
 import android.provider.ContactsContract.Directory
 import android.provider.ContactsContract.PhoneLookup
-import com.example.simplecallerid.R
-import com.example.simplecallerid.db.UserDatabase
-import com.example.simplecallerid.db.UserRepository
+import re.retorque.corpcallerid.R
+import re.retorque.corpcallerid.db.UserDatabase
+import re.retorque.corpcallerid.db.UserRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 

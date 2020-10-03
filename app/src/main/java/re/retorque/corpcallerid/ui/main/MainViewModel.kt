@@ -1,12 +1,12 @@
-package com.example.simplecallerid.ui.main
+package re.retorque.corpcallerid.ui.main
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.example.simplecallerid.db.UserDatabase
-import com.example.simplecallerid.db.UserRepository
-import com.example.simplecallerid.models.User
+import re.retorque.corpcallerid.db.UserDatabase
+import re.retorque.corpcallerid.db.UserRepository
+import re.retorque.corpcallerid.models.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

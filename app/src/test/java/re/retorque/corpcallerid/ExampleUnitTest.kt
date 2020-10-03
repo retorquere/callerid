@@ -1,4 +1,4 @@
-package com.example.simplecallerid
+package re.retorque.corpcallerid
 
 import org.junit.Test
 
